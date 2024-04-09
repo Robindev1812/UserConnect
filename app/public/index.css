@@ -1,0 +1,41 @@
+*{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  color: #fff;
+}
+
+body{
+  background-image: url('./src/images/fondo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+nav{
+  font-size: 20px;
+  background-color: #12010153;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.logo{
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 12px;
+}
+
+.nav-option{
+  display: flex;
+  gap: 30px;
+ 
+  justify-content: space-between;
+  margin-right: 12px;
+}
+.nav-option > a{
+  text-decoration: none;
+  color: #fff;
+  opacity: 1;
+}
