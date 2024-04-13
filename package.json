@@ -5,13 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --exec node app/index.js" 
+    "dev": "nodemon --exec node app/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "cookies-parser": "^1.2.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

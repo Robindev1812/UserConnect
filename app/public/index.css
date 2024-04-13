@@ -1,10 +1,10 @@
-*{
+* {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 0;
   color: #fff;
 }
 
-body{
+body {
   background-image: url('./src/images/fondo.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,7 +12,7 @@ body{
   background-attachment: fixed;
 }
 
-nav{
+nav {
   font-size: 20px;
   background-color: #12010153;
   display: flex;
@@ -21,20 +21,21 @@ nav{
   padding-bottom: 13px;
 }
 
-.logo{
+.logo {
   font-size: 25px;
   font-weight: bold;
   margin-left: 12px;
 }
 
-.nav-option{
+.nav-option {
   display: flex;
   gap: 30px;
- 
+
   justify-content: space-between;
   margin-right: 12px;
 }
-.nav-option > a{
+
+.nav-option>a {
   text-decoration: none;
   color: #fff;
   opacity: 1;
