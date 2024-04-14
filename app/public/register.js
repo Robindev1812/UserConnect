@@ -1,4 +1,3 @@
-console.log("conectado desde el register");
 const showError = document.getElementsByClassName("error")[0]
 
 document.getElementById("register-form").addEventListener("submit", async (e) => {
@@ -24,5 +23,4 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
   if (resJson.redirect) {
     window.location.href = resJson.redirect
   }
-
 });

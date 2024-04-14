@@ -1,7 +1,4 @@
-console.log("conectado desde el login");
-
 const showError = document.getElementsByClassName("error")[0]
-
 
 document.getElementById("login-form").addEventListener("submit", async (e) => {
   e.preventDefault()
@@ -25,7 +22,4 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   if (resJson.redirect) {
     window.location.href = resJson.redirect
   }
-
-
-
 })
