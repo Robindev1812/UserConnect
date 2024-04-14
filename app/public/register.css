@@ -1,22 +1,29 @@
-html {
-  background-color: rgb(45, 43, 155);
-}
-
 body {
-  margin: 0;
+  background-image: url('./src/images/fondo2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100svh;
-  font-size: larger;
+  font-size: 20px;
+  margin: 0;
 }
 
 .form-container {
   width: 500px;
   background-color: white;
   border-radius: 10px;
-  padding: 50px
+  padding: 50px 25px
+}
+
+h1 {
+  font-size: 35px;
 }
 
 
@@ -36,7 +43,7 @@ button {
   border-radius: 4px;
   border: unset;
   padding: 15px 30px;
-  font-size: larger;
+  font-size: 20px;
 }
 
 button {
