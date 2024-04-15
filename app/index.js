@@ -1,5 +1,6 @@
 import { scrypt } from "crypto";
 import express from "express";
+import { conecction } from "./database/db.js";
 
 //Fix para __direname
 import path from "path";
@@ -28,3 +29,8 @@ app.get("/login", authorization.soloPublico, (req, res) => res.sendFile(__dirnam
 app.get("/admin", authorization.soloAdmin, (req, res) => res.sendFile(__dirname + "/pages/admin/admin.html"));
 app.post("/api/register", authentication.register)
 app.post("/api/login", authentication.login)
+
+// app.get("/prueba", async (req, res) => {
+//   const [result] = await conecction.query('SELECT * FROM user_admin')
+//   res.json(result)
+// })

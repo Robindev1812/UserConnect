@@ -1,19 +1,26 @@
 import bcryptjs from "bcryptjs"
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from "dotenv"
+import { conecction } from "../database/db.js";
 
 dotenv.config()
 
-export const usuarios = [
-  {
-    user: "r",
-    email: "r@r.com",
-    password: '$2a$10$Mx7Icb2C7OwJ4VtTP.OcE.jPDCiICbBfEcYpWDRpeaghi3dFMMlZy' //r
-  }
-]
 
+const getUsers = async function () {
+  const [result] = await conecction.query('SELECT * FROM user_admin')
+  return result
+}
+
+export const usuarios = await getUsers()
 
 async function login(req, res) {
+
+  const getUsers = async function () {
+    const [result] = await conecction.query('SELECT * FROM user_admin')
+    return result
+  }
+  const usuarios = await getUsers()
+
   console.log(req.body)
   const user = req.body.user
   const password = req.body.password
@@ -24,7 +31,7 @@ async function login(req, res) {
     })
   }
 
-  const reviewUser = usuarios.find(usuario => usuario.user === user)
+  const reviewUser = usuarios.find(usuario => usuario.name === user)
   if (!reviewUser) {
     return res.status(400).send({
       status: "Error", message: "Error al iniciar sesión"
@@ -54,6 +61,13 @@ async function login(req, res) {
 
 
 async function register(req, res) {
+
+  const getUsers = async function () {
+    const [result] = await conecction.query('SELECT * FROM user_admin')
+    return result
+  }
+  const usuarios = await getUsers()
+
   console.log(req.body)
   const user = req.body.user
   const email = req.body.email
@@ -65,7 +79,7 @@ async function register(req, res) {
     })
   }
 
-  const reviewUser = usuarios.find(usuario => usuario.user === user)
+  const reviewUser = usuarios.find(usuario => usuario.name === user)
   if (reviewUser) {
     return res.status(400).send({
       status: "Error", message: "El usuario ya existe"
@@ -75,11 +89,7 @@ async function register(req, res) {
   const saltUser = await bcryptjs.genSalt()
   const hashPassword = await bcryptjs.hash(password, saltUser)
 
-  const newUser = {
-    user, email, password: hashPassword
-  }
-
-  usuarios.push(newUser)
+  await conecction.query('INSERT INTO user_admin (name, email, password) VALUES (?, ?, ?)', [user, email, hashPassword])
 
   console.log(usuarios)
   return res.status(201).send({
@@ -88,8 +98,6 @@ async function register(req, res) {
     redirect: "/login"
   })
 }
-
-
 
 
 export const methods = {
